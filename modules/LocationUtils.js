@@ -72,7 +72,6 @@ export const statesAreEqual = (a, b) => {
 }
 
 export const locationsAreEqual = (a, b) =>
-  a.key === b.key &&
   // a.action === b.action && // Different action !== location change.
   a.pathname === b.pathname &&
   a.search === b.search &&
