@@ -18,7 +18,7 @@ const createHistory = (options = {}) => {
     keyLength
   } = options
 
-  let currentLocation
+  let currentLocation = getCurrentLocation()
   let pendingLocation
   let beforeListeners = []
   let listeners = []
@@ -81,9 +81,6 @@ const createHistory = (options = {}) => {
   }
 
   const transitionTo = (nextLocation) => {
-    if (!currentLocation && nextLocation) {
-      currentLocation = nextLocation
-    }
     if (
       (currentLocation && locationsAreEqual(currentLocation, nextLocation)) ||
       (pendingLocation && locationsAreEqual(pendingLocation, nextLocation))
