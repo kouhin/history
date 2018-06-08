@@ -81,6 +81,9 @@ const createHistory = (options = {}) => {
   }
 
   const transitionTo = (nextLocation) => {
+    if (!currentLocation && nextLocation) {
+      currentLocation = nextLocation
+    }
     if (
       (currentLocation && locationsAreEqual(currentLocation, nextLocation)) ||
       (pendingLocation && locationsAreEqual(pendingLocation, nextLocation))
